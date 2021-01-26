@@ -1,10 +1,9 @@
 ﻿using Owin;
 using Microsoft.Owin;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Web;
+using SportsStore.WebUI.Middlewares;
+
+[assembly: OwinStartupAttribute(typeof(SportsStore.WebUI.Startup))]
 
 namespace SportsStore.WebUI
 {
@@ -12,11 +11,20 @@ namespace SportsStore.WebUI
     {
         public static void Configuration(IAppBuilder app)
         {
-            app.Use(async (ctx, next) =>
+            app.UseDebugMiddleware(new DebugMiddlewareOptions
             {
-                Debug.WriteLine($"Incoming request path: {ctx.Request.Path}");
-                await next();
-                Debug.WriteLine($"Incoming request headers: {ctx.Request.Headers}");
+                IncomingRequest = (ctx) =>
+                {
+                    var watch = new Stopwatch();
+                    watch.Start();
+                    ctx.Environment["DebugStopwatch"] = watch;
+                },
+                OutgoingRequest = (ctx) =>
+                {
+                    var watch = (Stopwatch)ctx.Environment["DebugStopwatch"];
+                    watch.Stop();
+                    Debug.WriteLine($"Request took: {watch.ElapsedMilliseconds}ms");
+                }
             });
         }
     }
