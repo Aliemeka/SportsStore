@@ -9,6 +9,9 @@ namespace SportsStore.Domain.Abstract
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> Products { get; }
+        IEnumerable<Product> GetAllProducts();
+        Product GetProduct(int id);
+        Product AddProduct(Product product);
+        Product DeleteProduct(int id);
     }
 }

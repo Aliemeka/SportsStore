@@ -74,14 +74,25 @@
   <ItemGroup>
     <Compile Include="Abstract\IProductRepository.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Data\StoreDbContext.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="Migrations\202101291243040_Created and seeded product table.cs" />
+    <Compile Include="Migrations\202101291243040_Created and seeded product table.designer.cs">
+      <DependentUpon>202101291243040_Created and seeded product table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202101291243040_Created and seeded product table.resx">
+      <DependentUpon>202101291243040_Created and seeded product table.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
