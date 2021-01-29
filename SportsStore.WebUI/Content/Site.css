@@ -1,7 +1,23 @@
-﻿body {
-    padding-top: 50px;
+﻿@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+:root {
+    --font: "Source Sans Pro",  sans-serif;
+}
+
+body {
+    font-family: var(--font) !important;
     padding-bottom: 20px;
 }
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font) !important;
+}
+
+.title {
+    font-family: var(--font) !important;
+}
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {

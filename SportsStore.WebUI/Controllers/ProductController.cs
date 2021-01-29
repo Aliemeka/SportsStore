@@ -18,7 +18,7 @@ namespace SportsStore.WebUI.Controllers
 
         public ActionResult List()
         {
-            var model = _productRepo.Products;
+            var model = _productRepo.GetAllProducts();
             return View(model);
         }
     }

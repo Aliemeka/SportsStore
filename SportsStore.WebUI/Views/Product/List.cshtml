@@ -3,10 +3,33 @@
 @{
     ViewBag.Title = "Products";
 }
-@foreach (var p in Model) {
-    <div>
-        <h3>@p.Name</h3>
-        @p.Description
-        <h4>@p.Price.ToString("c")</h4>
+
+<section class="page-header page-header-small mt-0">
+    <div class="page-header-image" data-parallax="true" style="background-image: url('../assets/img/bg6.jpg');">
     </div>
-}
+    <header class="content-center">
+        <div class="container">
+            <h1 class="title">All products</h1>
+        </div>
+    </header>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+        @foreach (var p in Model)
+        {
+            <div class="col-sm-6 col-md-4 col-lg-3 p-3">
+
+                <div class="card w-full">
+                    <div class="card-body">
+                        <h3>@p.Name</h3>
+                        <p>@p.Description</p>
+                        <h4 class="text-success">@p.Price.ToString("c")</h4>
+                    </div>
+                </div>
+            </div>
+        }
+        </div>
+    </div>
+</section>
