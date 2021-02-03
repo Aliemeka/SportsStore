@@ -19,6 +19,8 @@ namespace SportsStore.Domain.Migrations
             //  This method will be called after migrating to the latest version.
 
             //DbSet<T>.AddOrUpdate();
+
+            // Seed method for products with default data
             context.Products.AddOrUpdate(product => product.ProductID, 
                 new Product()
                 {

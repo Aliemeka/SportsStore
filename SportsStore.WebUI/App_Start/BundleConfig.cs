@@ -35,7 +35,7 @@ namespace SportsStore.WebUI
                       "~/assets/css/bootstrap.min.css",
                       "~/assets/css/now-ui-kit.min.css",
                       "~/assets/demo/demo.css",
-                      "~/Content/site.css"));
+                      "~/assets/css/Site.css"));
         }
     }
 }
